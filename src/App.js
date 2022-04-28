@@ -1,7 +1,7 @@
 import "./App.css";
 import styled from "styled-components";
 import movieicon1 from "./icons/movieicon1.png";
-
+import MovieComponent from "./components/MovieComponent";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,7 +44,12 @@ function App() {
           Prince's Theatre
         </AppName>
       </Header>
-      <MovieListContainer></MovieListContainer>
+      <MovieListContainer>
+        <MovieComponent />
+        <MovieComponent />
+        <MovieComponent />
+        <MovieComponent />
+      </MovieListContainer>
     </Container>
   );
 }
