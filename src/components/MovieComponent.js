@@ -33,17 +33,15 @@ const MovieInfo = styled.span`
   text-transform: capitalize;
 `;
 const MovieComponent = (props) => {
+  const { Poster, Price, Title } = props.movie;
   return (
     <MovieContainer>
-      <CoverImage
-        src="https://m.media-amazon.com/images/M/MV5BMDljNTQ5ODItZmQwMy00M2ExLTljOTQtZTVjNGE2NTg0NGIxXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_SX300.jpg"
-        alt=""
-      />
-      <MovieName>Star Wars: Episode IX - The Rise of Skywalker</MovieName>
+      <CoverImage src={Poster} alt="" />
+      <MovieName>{Title}</MovieName>
 
       <InfoColumn>
-        <MovieInfo>FilmWorld: $23</MovieInfo>
-        <MovieInfo>CinemaWorld: $24</MovieInfo>
+        <MovieInfo>FilmWorld: ${Price}</MovieInfo>
+        <MovieInfo>CinemaWorld: ${Price}</MovieInfo>
       </InfoColumn>
     </MovieContainer>
   );
