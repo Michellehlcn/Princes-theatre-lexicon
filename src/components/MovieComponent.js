@@ -32,16 +32,28 @@ const MovieInfo = styled.span`
   color: black;
   text-transform: capitalize;
 `;
+
 const MovieComponent = (props) => {
-  const { Poster, Price, Title } = props.movie;
+  const { Poster, Price, Title, cinemaWorldPrice } = props.movie;
+
   return (
     <MovieContainer>
       <CoverImage src={Poster} alt="" />
       <MovieName>{Title}</MovieName>
 
       <InfoColumn>
-        <MovieInfo>FilmWorld: ${Price}</MovieInfo>
-        <MovieInfo>CinemaWorld: ${Price}</MovieInfo>
+        <MovieInfo>
+          FilmWorld:
+          <span style={Price > cinemaWorldPrice ? { color: "green" } : null}>
+            {Price}
+          </span>
+        </MovieInfo>
+        <MovieInfo>
+          CinemaWorld:
+          <span style={Price < cinemaWorldPrice ? { color: "green" } : null}>
+            {cinemaWorldPrice}
+          </span>
+        </MovieInfo>
       </InfoColumn>
     </MovieContainer>
   );
