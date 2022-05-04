@@ -37,20 +37,20 @@ const MovieComponent = (props) => {
   const { Poster, Price, Title, cinemaWorldPrice } = props.movie;
 
   return (
-    <MovieContainer>
+    <MovieContainer data-testid="movieComponent-1">
       <CoverImage src={Poster} alt="" />
       <MovieName>{Title}</MovieName>
 
       <InfoColumn>
         <MovieInfo>
           FilmWorld:
-          <span style={Price > cinemaWorldPrice ? { color: "green" } : null}>
+          <span style={Price < cinemaWorldPrice ? { color: "green" } : null}>
             {Price}
           </span>
         </MovieInfo>
         <MovieInfo>
           CinemaWorld:
-          <span style={Price < cinemaWorldPrice ? { color: "green" } : null}>
+          <span style={Price > cinemaWorldPrice ? { color: "green" } : null}>
             {cinemaWorldPrice}
           </span>
         </MovieInfo>
