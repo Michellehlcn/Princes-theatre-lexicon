@@ -45,11 +45,17 @@ function App() {
   const [filmWorld, setFilmWorld] = useState([]);
   const [cinemaWorld, setCinemaWorld] = useState([]);
 
+  const [error, setError] = useState(false);
+
   useEffect(() => {
     const theaters = ["cinema", "film"];
     theaters.forEach((theater) => {
       async function getTheater() {
         const data = await api.getMoviesData(theater);
+        if (data == null) {
+          setError(true);
+          return;
+        }
         if (data.Provider === "Film World") {
           setFilmWorld(data);
         } else {
@@ -77,9 +83,10 @@ function App() {
           Prince's Theatre
         </AppName>
       </Header>
+      {error ? <div>'Please refresh'</div> : ""}
       <MovieListContainer>
         {movies.map((movie, index) => (
-          <MovieComponent key={index} movie={movie} />
+          <MovieComponent key={index} movie={movie} error={error} />
         ))}
       </MovieListContainer>
     </Container>

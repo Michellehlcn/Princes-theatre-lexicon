@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import PriceCheckIcon from "@mui/icons-material/PriceCheck";
+import CurrencyFormat from "react-currency-format";
 
 const MovieContainer = styled.div`
   display: flex;
@@ -25,17 +27,19 @@ const InfoColumn = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-end;
 `;
 const MovieInfo = styled.span`
-  font-size: 16px;
+  font-size: 18x;
   font-weight: 500;
-  color: black;
+  color: black
   text-transform: capitalize;
+  
 `;
 
 const MovieComponent = (props) => {
   const { Poster, Price, Title, cinemaWorldPrice } = props.movie;
-
+  const { error } = props;
   return (
     <MovieContainer data-testid="movieComponent-1">
       <CoverImage src={Poster} alt="" />
@@ -43,15 +47,39 @@ const MovieComponent = (props) => {
 
       <InfoColumn>
         <MovieInfo>
-          FilmWorld:
-          <span style={Price < cinemaWorldPrice ? { color: "green" } : null}>
-            {Price}
+          FilmWorld: &nbsp;
+          <span
+            style={
+              Price < cinemaWorldPrice ? { color: "green" } : { color: "red" }
+            }
+          >
+            <CurrencyFormat
+              value={Price}
+              displayType={"text"}
+              prefix={"$"}
+              decimalScale={2}
+              fixedDecimalScale
+            />
           </span>
         </MovieInfo>
         <MovieInfo>
-          CinemaWorld:
-          <span style={Price > cinemaWorldPrice ? { color: "green" } : null}>
-            {cinemaWorldPrice}
+          CinemaWorld: &nbsp;
+          <span
+            style={
+              Price > cinemaWorldPrice ? { color: "green" } : { color: "red" }
+            }
+          >
+            {error && Price > cinemaWorldPrice ? (
+              <PriceCheckIcon />
+            ) : (
+              <CurrencyFormat
+                value={cinemaWorldPrice}
+                displayType={"text"}
+                prefix={"$"}
+                decimalScale={2}
+                fixedDecimalScale
+              />
+            )}
           </span>
         </MovieInfo>
       </InfoColumn>

@@ -2,6 +2,7 @@ import axios from "./Axios";
 
 const apiKey = "Yr2636E6BTD3UCdleMkf7UEdqKnd9n361TQL9An7";
 
+//inserts theatre into url
 const getMoviesData = async (theater) => {
   try {
     const { status, data } = await axios.get(`/${theater}world/movies`, {
@@ -13,11 +14,11 @@ const getMoviesData = async (theater) => {
     if (status === 200 || status === 201) {
       return data;
     } else {
-      //is it possible to return old data?
       return null;
     }
   } catch (error) {
-    return error.response.data;
+    console.log(`error`, error.response.data);
+    return null;
   }
 };
 

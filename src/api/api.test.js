@@ -1,0 +1,1 @@
+// import GetMoviesData from "./Api"
