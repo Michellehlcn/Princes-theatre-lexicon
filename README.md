@@ -14,6 +14,9 @@ For stylings I decided to use styled-components as I hadn't used it before for d
 There were quite a few hurdles along the way. Working with broken APIs was completely new to me.
 I found the try statement to be helpful as it allows a block of code to be tested for errors while it is being executed.
 Testing was the biggest hurdle. Having done limited unit tests with Javascript previously I spent most of my time on this project watching videos, reading documentation and purchased some courses on React testing to help.
+On deployment I've noticed some issues that don't appear locally. On Surge I've added a mui price icon to display in red so Cinema World price doesn't display blank. In Vercel I've left it to appear blank to show the render without the mui icon conditional.
+Unfortunately locally I was able to have the mui icon appear green if an error occurred and Cinema World price was cheaper than Film World and red if the opposite. I have commented out this code in the MovieComponent.js.
+App functions well locally.
 
 # Future
 
