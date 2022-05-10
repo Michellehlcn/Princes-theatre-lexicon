@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import PriceCheckIcon from "@mui/icons-material/PriceCheck";
 import CurrencyFormat from "react-currency-format";
 
 const MovieContainer = styled.div`
@@ -39,7 +38,7 @@ const MovieInfo = styled.span`
 
 const MovieComponent = (props) => {
   const { Poster, Price, Title, cinemaWorldPrice } = props.movie;
-  const { error } = props;
+
   return (
     <MovieContainer data-testid="movieComponent-1">
       <CoverImage src={Poster} alt="" />
@@ -69,17 +68,13 @@ const MovieComponent = (props) => {
               Price > cinemaWorldPrice ? { color: "green" } : { color: "red" }
             }
           >
-            {error && Price > cinemaWorldPrice ? (
-              <PriceCheckIcon />
-            ) : (
-              <CurrencyFormat
-                value={cinemaWorldPrice}
-                displayType={"text"}
-                prefix={"$"}
-                decimalScale={2}
-                fixedDecimalScale
-              />
-            )}
+            <CurrencyFormat
+              value={cinemaWorldPrice}
+              displayType={"text"}
+              prefix={"$"}
+              decimalScale={2}
+              fixedDecimalScale
+            />
           </span>
         </MovieInfo>
       </InfoColumn>

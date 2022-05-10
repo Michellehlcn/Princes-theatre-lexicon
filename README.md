@@ -1,3 +1,24 @@
+# Prince's Theatre
+
+https://princes-theatre.surge.sh/
+
+# Context
+
+Prince's theatre is an app that incorporates a price comparison tool so the user can compare prices between two cinemas (Cinema World and Film World), and is visually displayed the cheapest option.
+I decided to create the app with React as I wanted to gain more knowledge with it and my preferred language is Javascript.
+For stylings I decided to use styled-components as I hadn't used it before for design.
+
+# Challenges
+
+There were quite a few hurdles along the way. Working with broken APIs was completely new to me.
+I found the try statement to be helpful as it allows a block of code to be tested for errors while it is being executed.
+Testing was the biggest hurdle. Having done limited unit tests with Javascript previously I spent most of my time on this project watching videos, reading documentation and purchased some courses on React testing to help.
+
+# Future
+
+In the future I think i would look into using setState() to set a loading state.
+I would have liked to have more experience in testing before approaching this project but am thankfull for how much I've learned whilst creating this app.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

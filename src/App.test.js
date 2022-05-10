@@ -1,4 +1,4 @@
-import { cleanup, render, screen, wait } from "@testing-library/react";
+import { cleanup } from "@testing-library/react";
 import api from "./api/Api";
 import App from "./App";
 import React from "react";
@@ -36,8 +36,6 @@ describe("Component: App", () => {
     await act(async () => {
       ReactDOM.createRoot(container).render(<App />);
     });
-
-    console.log(container.innerHTML);
 
     const numOfMovies = container.querySelectorAll("img").length;
     expect(numOfMovies).toBe(2);

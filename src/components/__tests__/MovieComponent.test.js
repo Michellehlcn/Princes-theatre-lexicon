@@ -1,4 +1,4 @@
-import { cleanup, screen, render } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 import MovieComponent from "../MovieComponent";
 
 afterEach(() => {

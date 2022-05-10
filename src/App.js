@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
-import "./App.css";
+
 import styled from "styled-components";
 import movieicon1 from "./icons/movieicon1.png";
 import MovieComponent from "./components/MovieComponent";
-import axios from "axios";
 import api from "./api/Api";
 
 const Container = styled.div`
@@ -83,7 +82,8 @@ function App() {
           Prince's Theatre
         </AppName>
       </Header>
-      {error ? <div>'Please refresh'</div> : ""}
+      {error ? <div>Oops there seems to be a problem please refresh</div> : ""}
+
       <MovieListContainer>
         {movies.map((movie, index) => (
           <MovieComponent key={index} movie={movie} error={error} />
