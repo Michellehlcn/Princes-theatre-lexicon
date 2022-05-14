@@ -3,7 +3,8 @@ import React, { useState, useEffect, useMemo } from "react";
 import styled from "styled-components";
 import movieicon1 from "./icons/movieicon1.png";
 import MovieComponent from "./components/MovieComponent";
-import api from "./api/Api";
+import Api from "./api/Api";
+import Loader from "./components/loader/loader";
 
 const Container = styled.div`
   display: flex;
@@ -45,20 +46,24 @@ function App() {
   const [cinemaWorld, setCinemaWorld] = useState([]);
 
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const theaters = ["cinema", "film"];
     theaters.forEach((theater) => {
       async function getTheater() {
-        const data = await api.getMoviesData(theater);
+        const data = await Api.getMoviesData(theater);
         if (data == null) {
           setError(true);
+          setLoading(false);
           return;
         }
         if (data.Provider === "Film World") {
           setFilmWorld(data);
+          setLoading(true);
         } else {
           setCinemaWorld(data);
+          setLoading(true);
         }
       }
       getTheater();
@@ -74,7 +79,9 @@ function App() {
     }));
   }, [filmWorld, cinemaWorld]);
 
-  return (
+// Add Loading screen
+  return loading ? 
+    (
     <Container>
       <Header>
         <AppName>
@@ -90,7 +97,8 @@ function App() {
         ))}
       </MovieListContainer>
     </Container>
-  );
+    ) :(<Loader />)
+  ;
 }
 
 export default App;
