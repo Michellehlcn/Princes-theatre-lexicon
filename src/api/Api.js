@@ -1,7 +1,7 @@
 import client from "./Axios";
 
-// const apiKey = process.env.REACT_APP_MY_API_KEY;
-const apiKey = "Yr2636E6BTD3UCdleMkf7UEdqKnd9n361TQL9An7"
+const apiKey = process.env.REACT_APP_MY_API_KEY;
+
 //inserts theatre into url
 const getMoviesData = async (theater) => {
   try {
